@@ -37,6 +37,7 @@ function App() {
             },
           };
         }}>
+
         <Stack.Screen
           name="Main"
           component={BottomTabs}
