@@ -35,12 +35,13 @@ const navigateToCurrentPosition = (mapRef, callback) => {
 };
 export default () => {
   const route = useRoute()
-  const [region, setRegion] = useState(LOCATION[route.params?.city]);
+  const [region, setRegion] = useState({...LOCATION[route.params?.city], ...defaultDelta});
   const mapRef = useRef(null);
 
-  useEffect(() => {
-    navigateToCurrentPosition(mapRef, setRegion);
-  }, []);
+  console.log("route", LOCATION[route.params?.city])
+  // useEffect(() => {
+  //   // navigateToCurrentPosition(mapRef, setRegion);
+  // }, []);
   return (
     <View style={styles.container}>
       <MapView
@@ -52,9 +53,7 @@ export default () => {
           const {latitude, longitude} = e.nativeEvent.coordinate;
           setRegion({...region, latitude, longitude});
         }}>
-        <Marker
-          coordinate={defaultLagLng}
-        />
+      
         <Marker coordinate={getLatLng(region)} />
       </MapView>
     </View>

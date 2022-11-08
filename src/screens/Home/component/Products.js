@@ -1,35 +1,3 @@
-// import React from "react";
-// import {Text,View,FlatList,TouchableWithoutFeedback,} from "react-native";
-
-// const Products = ({navigation}) => {
-//   return (
-//     <View>
-//       <FlatList
-//         data={[
-//           { key: "Devin" },
-//           { key: "Dan" },
-//           { key: "Jillian" },
-//           { key: "Jimmy" },
-//           { key: "Julie" },
-//         ]}
-//         renderItem={({ item }) => (
-//           <TouchableWithoutFeedback onPress={() => actionOnRow(item)}>
-//             <View>
-//               <Text>{item.key}</Text>
-//             </View>
-//           </TouchableWithoutFeedback>
-//         )}
-//       />
-//     </View>
-//   );
-// };
-
-// const actionOnRow = (item) => {
-//    const value = "Selected Item : "+ item;
-//   alert(value);
-// };
-// export default Products;
-
 import React from 'react';
 import {
   SafeAreaView,
@@ -73,6 +41,7 @@ const Products = ({ navigation }) => {
         renderItem={({item, index}) => (
           <TouchableOpacity
             onPress={() => {
+
               navigation.navigate('Map', {city: item.city});
             }}>
             <View style={styles.item}>
